@@ -1,0 +1,25 @@
+<% include layouts/_header.ejs %>
+<div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Pagina de Perfil</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+    <input type="button" onclick="location.href='http://localhost:3000" value="mapa">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="well">
+
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                    </p>
+                    <br>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="map" style="width:500px; height:400px"></div>
+</body>
+</html>
