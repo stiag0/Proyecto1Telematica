@@ -14,9 +14,9 @@ var session      = require('express-session');
 var configDB = require('./config/database.js'); 
 
 // configuration ===============================================================
-mongoose.connect(configDB.url, function (err) {
-    if (err) throw err;
-    console.log('Conectado con exito a la bd');
+var promise = mongoose.connect('mongodb://localhost/P1NodeLoguinMap1', {
+  useMongoClient: true,
+  /* other options */
 }); // connect to our database
 
  require('./config/passport')(passport); // pass passport for configuration
@@ -24,12 +24,13 @@ mongoose.connect(configDB.url, function (err) {
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser()); // get information from html forms
+app.use(bodyParser.urlencoded({extended:true})); // get information from html forms
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
-app.use(session({ secret: 'unetsyscomikrohotel' })); // session secret
+app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true, 
+                proxy:true, resave:true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -39,4 +40,4 @@ require('./config/routes.js')(app, passport); // load our routes and pass in our
 
 // launch ======================================================================
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('la cosa va por el puerto ' + port);

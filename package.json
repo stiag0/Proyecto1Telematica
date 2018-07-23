@@ -4,6 +4,7 @@
   "description": "Login para integrar a MikroHotelEND",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Unetsys.co",
@@ -22,5 +23,8 @@
     "nodemon": "^1.18.3",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
-  }
+  },
+    "engines":{
+	"node":"7.7.4"
+    }
 }

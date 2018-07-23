@@ -1,13 +1,13 @@
 FROM node:9.6.1
 
 LABEL version="1.0"
-LABEL description="Web app Articulos NodeJS"
-LABEL maintainer="Edwin Montoya - emontoya@eafit.edu.co"
+LABEL description="Proyecto1"
+LABEL maintainer="santiago alvarez - salvar30@eafit.edu.co"
 
 ARG PORT=3000
 ENV PORT $PORT
 
-WORKDIR /nodeApp
+WORKDIR /proyecto1telematica
 COPY . ./
 
 RUN npm install --test
