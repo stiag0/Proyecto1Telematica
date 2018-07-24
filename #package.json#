@@ -1,7 +1,7 @@
 {
   "name": "loginhotel",
   "version": "1.0.0",
-  "description": "Login para trackerde google",
+  "description": "Login para integrar a MikroHotelEND",
   "main": "index.js",
   "scripts": {
     "start":"node index.js",

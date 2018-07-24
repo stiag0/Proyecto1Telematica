@@ -11,10 +11,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-var configDB = require('./config/database.js'); 
+var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-var promise = mongoose.connect('mongodb://localhost/P1NodeLoguinMap1', {
+var promise = mongoose.connect('mongodb://localhost/proyecto1telematica', {
   useMongoClient: true,
   /* other options */
 }); // connect to our database
@@ -24,13 +24,18 @@ var promise = mongoose.connect('mongodb://localhost/P1NodeLoguinMap1', {
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser.urlencoded({extended:true})); // get information from html forms
+app.use(bodyParser.urlencoded({extended:true})); // get information from html forms<<<<<<< HEAD
+app.set('view engine', 'ejs'); // set up ejs for templating
+
+// required for passport
+app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true,
+                proxy:true, resave:true})); // session secret=======
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true, 
-                proxy:true, resave:true })); // session secret
+                proxy:true, resave:true })); // session secret>>>>>>> 0be6744ec361e7853031a3c71e8c63a1401d4261
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -40,4 +45,4 @@ require('./config/routes.js')(app, passport); // load our routes and pass in our
 
 // launch ======================================================================
 app.listen(port);
-console.log('la cosa va por el puerto ' + port);
+console.log('The magic happens on port ' + port);

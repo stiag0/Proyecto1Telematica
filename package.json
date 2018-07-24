@@ -1,5 +1,5 @@
 {
-  "name": "loginhotel",
+  "name": "loginMap",
   "version": "1.0.0",
   "description": "Login para integrar a MikroHotelEND",
   "main": "index.js",
