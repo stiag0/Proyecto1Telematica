@@ -14,7 +14,7 @@ var session      = require('express-session');
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-var promise = mongoose.connect('mongodb://localhost/proyecto1telematica', {
+var promise = mongoose.connect('mongodb://mongo-server/loginGPS' , {
   useMongoClient: true,
   /* other options */
 }); // connect to our database
