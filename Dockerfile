@@ -2,12 +2,12 @@ FROM node:9.6.1
 
 LABEL version="1.0"
 LABEL description="Proyecto1"
-LABEL maintainer="Santiago Ramon Alvarez - salvar30@eafit.edu.co"
+LABEL maintainer="Santiago Ramon Alverz - salvar30@eafit.edu.co"
 
 ARG PORT=3000
 ENV PORT $PORT
 
-WORKDIR /proyecto1telematica
+WORKDIR /P1NodeLoginMap1
 COPY . ./
 
 RUN npm install --test

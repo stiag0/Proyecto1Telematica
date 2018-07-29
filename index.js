@@ -1,20 +1,21 @@
 // get all the tools we need
-var express  = require('express');
-var app      = express();
-var port     = process.env.PORT || 3000;
+
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
+var express  = require('express');
+var app      = express();
+var port     = process.env.PORT || 3000;
 
-var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
+var morgan       = require('morgan');
 var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-var promise = mongoose.connect('mongodb://mongo-server/loginGPS' , {
+var promise = mongoose.connect('mongodb://localhost/P1NodeLoguinMap1', {
   useMongoClient: true,
   /* other options */
 }); // connect to our database
