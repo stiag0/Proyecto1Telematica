@@ -2,7 +2,7 @@ FROM node:9.6.1
 
 LABEL version="1.0"
 LABEL description="Proyecto1"
-LABEL maintainer="Santiago Ramon Alverz - salvar30@eafit.edu.co"
+LABEL maintainer="Santiago Alvarez Gomez-salvar30@eafit.edu.co"
 
 ARG PORT=3000
 ENV PORT $PORT
