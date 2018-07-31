@@ -38,7 +38,24 @@
                     <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSDeOmd-NrfRfD1U1yBBOEO3I4uyN1OSo"></script>
                     <button onclick="cargarmap()">Cargar mapa</button>
+                    
+                    <form action="<%=baseUrl%>GuardarPunto" method="POST">
+                    <button >guardar punto</button>
+                    </form>
+                    
                     <script type="text/javascript">
+                    
+                    router.post('/GuardarPunto', function(req, res, next) {
+                      var newArticulo = new Article({
+                        lat: position.coords.latitude,
+                        long: position.coords.longitude
+                      });
+                      newArticulo.save(function(err, newArticulo) {
+                        if (err) return next(err);
+                        res.redirect(config.baseUrl);
+                      });
+                    });
+                    
                     var x=document.getElementById("demo");
                     function cargarmap(){
                     navigator.geolocation.getCurrentPosition(showPosition,showError);
