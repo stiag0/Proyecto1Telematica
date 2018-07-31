@@ -43,7 +43,7 @@ module.exports = function (app, passport) {
 	app.use(function (req, res, next) {
 		res.status(404);
 		if (req.accepts('html')) {
-			res.render('../app/views/404/index.ejs');
+			res.render('../app/views/PlatformUser/profile.ejs');
 		}
 	});
 };
@@ -52,6 +52,6 @@ module.exports = function (app, passport) {
 function isLoggedIn(req,res,next) {
 	//si es un usuario autenticado, continua todo normal
 	if (req.isAuthenticated()) return next();
- 
+
 	res.redirect('/');
 }

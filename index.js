@@ -35,8 +35,8 @@ app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true,
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
-app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true, 
-                proxy:true, resave:true })); 
+app.use(session({ secret: 'unetsyscomikrohotel', saveUninitialized: true,
+                proxy:true, resave:true }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
