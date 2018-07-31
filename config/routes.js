@@ -22,7 +22,7 @@ module.exports = function (app, passport) {
 	});
 
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/profile.ejs',
+		successRedirect: '/profile',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
