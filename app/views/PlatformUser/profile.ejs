@@ -40,20 +40,32 @@
                     <button onclick="cargarmap()">Cargar mapa</button>
                     
                     
-                    <button >guardar punto</button>
+                    <button onclick="guardarPunto()">guardar punto</button>
                     
                     <script type="text/javascript">
                     
-                    router.post('/GuardarPunto', function(req, res, next) {
-                      var newArticulo = new Article({
-                        lat: position.coords.latitude,
-                        long: position.coords.longitude
+                    var User = require('../app/models/user');
+                    
+                    function guardarPunto(){
+                      router.post('/', (req, res, next) =>{
+                        User.find((err,User)=>{
+                          console.log(User);
+                          if(err) throw err;
+                          res.render('index',{user:user});
+                        });
                       });
-                      newArticulo.save(function(err, newArticulo) {
-                        if (err) return next(err);
-                        res.redirect(config.baseUrl);
-                      });
-                    });
+
+                    }
+                    // router.post('/', (req, res, next) =>{
+                    //   var newArticulo = new Article({
+                    //     lat: position.coords.latitude,
+                    //     long: position.coords.longitude
+                    //   });
+                    //   newArticulo.save(function(err, newArticulo) {
+                    //     if (err) return next(err);
+                    //     res.redirect(config.baseUrl);
+                    //   });
+                    // });
                     
                     var x=document.getElementById("demo");
                     function cargarmap(){
