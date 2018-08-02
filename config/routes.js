@@ -27,6 +27,32 @@ module.exports = function (app, passport) {
 		failureFlash: true
 	}));
 
+	app.post('/routes', function(req,res){
+		
+		console.log(req.body);
+		var route = new rutas(req.body);
+		route.save(function(err){
+			console.log(route);
+		});
+		// var userId = req.params.id;
+		// var update = req.body.route;
+		
+		// Route.findByIdAndUpdate(routeId, update, function (err, routeUpdated){
+		// 	if(err){
+		// 		res.status(500).send({message:'No se ha podido procesar la solicitud, ruta no actualizada'});
+		// 	}else{
+		// 		if(!routeUpdated){
+		// 			res.status(400).send({message : 'parámetros inválidos para realizar la actualización'});
+		// 		}else{
+		// 			res.status(200).send({route : routeUpdated});
+		// 		}
+		// 	}
+		// });
+		
+
+		// res.require('../app/models/user');
+	});
+
 	//panel usuario
 	app.get('/profile', isLoggedIn, function(req,res){
 		res.render('../app/views/PlatformUser/profile.ejs', {user: req.user});

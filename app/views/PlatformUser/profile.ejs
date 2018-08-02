@@ -16,20 +16,43 @@
                     <br>
                     <!-- Se determina y escribe la localizacion -->
                     <div id='ubicacion'></div>
-                    <script type="text/javascript">
+                    <script typutpe="text/javascript">
+                      var latitud;
+                      var longitud;
                     	if (navigator.geolocation) {
                     		navigator.geolocation.getCurrentPosition(mostrarUbicacion);
                     	} else {alert("¡Error! Este navegador no soporta la Geolocalización.");}
                     function mostrarUbicacion(position) {
                         var times = position.timestamp;
-                    	var latitud = position.coords.latitude;
-                    	var longitud = position.coords.longitude;
+                    	 latitud = position.coords.latitude;
+                    	 longitud = position.coords.longitude;
                         var altitud = position.coords.altitude;
                     	var exactitud = position.coords.accuracy;
                     	var div = document.getElementById("ubicacion");
                     	div.innerHTML = "Timestamp: " + times + "<br>Latitud: " + latitud + "<br>Longitud: " + longitud + "<br>Altura en metros: " + altitud + "<br>Exactitud: " + exactitud;}
                     function refrescarUbicacion() {
                     	navigator.geolocation.watchPosition(mostrarUbicacion);}
+                    
+                      function guardarPunto(){
+                      var data = {
+                      "user": user.local.email,
+                      "time":	new Date(),
+                      "lng":	longitud,
+                      "lat":	latitud
+                      };
+                      fetch('https://salvar30.dis.eafit.edu.co/routes', {
+                          method: 'POST',
+                          body: JSON.stringify(data),
+                          headers: {'Content-Type': 'application/json'}
+                      }).then(response => { 
+                        return response.json(); 
+                      }).then(data => { 
+                        alert(JSON.stringify(data));
+                      }).catch(err => {
+                          alert(err);
+                      });
+                    }
+
                     </script>
 
                     <!-- Se escribe un mapa con la localizacion anterior-->
@@ -39,25 +62,26 @@
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSDeOmd-NrfRfD1U1yBBOEO3I4uyN1OSo"></script>
                     <button onclick="cargarmap()">Cargar mapa</button>
                     
-                    <form action="/guardarPunto" method="put">
-                      <button>guardar punto</button>
-                    </form>
+                    
+                    
+                    <button onclick="guardarPunto()">guardar punto</button>
+                    
                     
                     
                     <script type="text/javascript">
                     
-                    var User = require('../app/models/user');
+                    // var User = require('../app/models/user');
                     
-                    function guardarPunto(){
-                      router.post('/', (req, res, next) =>{
-                        User.find((err,User)=>{
-                          console.log(User);
-                          if(err) throw err;
-                          res.render('index',{user:user});
-                        });
-                      });
+                    // function guardarPunto(){
+                    //   router.post('/', (req, res, next) =>{
+                    //     User.find((err,User)=>{
+                    //       console.log(User);
+                    //       if(err) throw err;
+                    //       res.render('index',{user:user});
+                    //     });
+                    //   });
 
-                    }
+                    // }
                     // router.post('/', (req, res, next) =>{
                     //   var newArticulo = new Article({
                     //     lat: position.coords.latitude,

@@ -9,12 +9,9 @@ var userSchema = mongoose.Schema({
 	local: 	{
 		email: 		String,
 		password: 	String,
-		time:	Date,
-		lng:	Number,
-		lat:	Number
-		
-	}
+		}
 });
+
 
 //bcrypt hash
 userSchema.methods.generateHash = function (password) {
