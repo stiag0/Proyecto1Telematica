@@ -45,23 +45,23 @@
                       "lat":	latitud
                       };
                       
-                      app.post( function(err,data){
+                      // app.post( function(err,data){
                         
-                        Ruta.push(data);
-                        Ruta.save(done);  
-                      });
-
-                      // fetch('https://salvar30.dis.eafit.edu.co/routes', {
-                      //     method: 'POST',
-                      //     body: JSON.stringify(data),
-                      //     headers: {'Content-Type': 'application/json'}
-                      // }).then(response => { 
-                      //   return response.json(); 
-                      // }).then(data => { 
-                      //   alert(JSON.stringify(data));
-                      // }).catch(err => {
-                      //     alert(err);
+                      //   Ruta.push(data);
+                      //   Ruta.save(done);  
                       // });
+
+                      fetch('https://salvar30.dis.eafit.edu.co/routes', {
+                          method: 'POST',
+                          body: JSON.stringify(data),
+                          headers: {'Content-Type': 'application/json'}
+                      }).then(response => { 
+                        return response.json(); 
+                      }).then(data => { 
+                        alert(JSON.stringify(data));
+                      }).catch(err => {
+                          alert(err);
+                      });
 
                     }
 
