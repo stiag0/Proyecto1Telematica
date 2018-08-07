@@ -46,7 +46,8 @@
                       };
                       
                       app.post( function(err,data){
-                        Ruta.friends.push(friend);
+                        
+                        Ruta.push(data);
                         Ruta.save(done);  
                       });
 
