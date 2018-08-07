@@ -17,8 +17,8 @@
                     <!-- Se determina y escribe la localizacion -->
                     <div id='ubicacion'></div>
                     <script typutpe="text/javascript">
-                    var userId = <%=JSON.stringify( user._id )%>
-                    
+                    var userId = JSON.parse('<%- user._id %>');
+
                       var latitud;
                       var longitud;
                     	if (navigator.geolocation) {
@@ -40,7 +40,7 @@
                       
                       //var Ruta = require('../app/models/ruta');
                       console.log("user._id "+ userId);
-                      
+                      consile log("get elemrntbyid"+ )
                       var data = {
                       "user":  userId,
                       "time":	new Date(),
