@@ -35,12 +35,12 @@
                     
 
                       function guardarPunto(){
-
+                      var userId = <%= user._id %>
                       //var Ruta = require('../app/models/ruta');
-                      console.log("user._id "+ document.getElementById(idUser));
+                      console.log("user._id "+ userId);
                       
                       var data = {
-                      "user":  "#{user._id}",
+                      "user":  userId,
                       "time":	new Date(),
                       "lng":	longitud,
                       "lat":	latitud
