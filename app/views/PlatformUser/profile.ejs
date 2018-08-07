@@ -33,24 +33,35 @@
                     function refrescarUbicacion() {
                     	navigator.geolocation.watchPosition(mostrarUbicacion);}
                     
+
                       function guardarPunto(){
+
+                      var Ruta = require('../app/models/ruta');
+
                       var data = {
                       "user":  document.getElementById("idUser"),
                       "time":	new Date(),
                       "lng":	longitud,
                       "lat":	latitud
                       };
-                      fetch('https://salvar30.dis.eafit.edu.co/routes', {
-                          method: 'POST',
-                          body: JSON.stringify(data),
-                          headers: {'Content-Type': 'application/json'}
-                      }).then(response => { 
-                        return response.json(); 
-                      }).then(data => { 
-                        alert(JSON.stringify(data));
-                      }).catch(err => {
-                          alert(err);
+                      
+                      app.post( function(err,data){
+                        Ruta.friends.push(friend);
+                        Ruta.save(done);  
                       });
+
+                      // fetch('https://salvar30.dis.eafit.edu.co/routes', {
+                      //     method: 'POST',
+                      //     body: JSON.stringify(data),
+                      //     headers: {'Content-Type': 'application/json'}
+                      // }).then(response => { 
+                      //   return response.json(); 
+                      // }).then(data => { 
+                      //   alert(JSON.stringify(data));
+                      // }).catch(err => {
+                      //     alert(err);
+                      // });
+
                     }
 
                     </script>
