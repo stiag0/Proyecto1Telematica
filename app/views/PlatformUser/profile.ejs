@@ -17,6 +17,8 @@
                     <!-- Se determina y escribe la localizacion -->
                     <div id='ubicacion'></div>
                     <script typutpe="text/javascript">
+                    var userId = <%=JSON.stringify( user._id )%>
+                    
                       var latitud;
                       var longitud;
                     	if (navigator.geolocation) {
@@ -33,9 +35,9 @@
                     function refrescarUbicacion() {
                     	navigator.geolocation.watchPosition(mostrarUbicacion);}
                     
-
+                      
                       function guardarPunto(){
-                      var userId = <%= user._id %>
+                      
                       //var Ruta = require('../app/models/ruta');
                       console.log("user._id "+ userId);
                       
