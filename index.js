@@ -20,6 +20,12 @@ var promise = mongoose.connect('mongodb://mongo-server/loginGPS', {
   /* other options */
 }); // connect to our database
 
+// var db = mongoose.connect('mongodb://localhost/loginGPS', function(error){
+//     if(error) console.log(error);
+
+//         console.log("connection successful");
+// });
+
  require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
