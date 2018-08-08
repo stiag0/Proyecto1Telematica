@@ -1,4 +1,4 @@
-# P1NodeLoginMap1
+# Proyecto1Telematica
 Primer proyecto de la materia Topicos Especiales en Telemática
 Objetivo:
 
