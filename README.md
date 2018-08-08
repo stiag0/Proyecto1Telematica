@@ -27,4 +27,4 @@ $ sudo docker-compose build
 $ sudo docker-compose up
 ```
 Esto montará la aplicacion en el servidor o en el Localhost
-Se puede acceder a la aplicación a través del siguiente link: salvar30.dis.eafit.edu.co O tambien por: findmapdb2.tk (no disponible por el momento)
+Se puede acceder a la aplicación a través del siguiente link: salvar30.dis.eafit.edu.co O tambien por: east-2.compute.amazonaws.com (no disponible por el momento)
